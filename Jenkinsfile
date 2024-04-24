@@ -6,7 +6,7 @@ pipeline {
                 sh 'python --version'
             }
         }
-	stage('weather') {
+	stage('/weather') {
 	 steps {
 	  sh 'python3 test_app.py"
 	   }
