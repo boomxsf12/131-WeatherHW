@@ -3,14 +3,11 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'python -m py_compile app.py'
+                sh 'python app.py'
             }
         }
 	stage('test app') {
 		steps {
-		sh 'pip install flask'
-	  	sh 'pip install pytest'
-		sh 'pip install requests'
 		sh 'python test_app.py'
 	   }
 	}
