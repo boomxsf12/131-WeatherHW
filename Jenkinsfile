@@ -6,9 +6,12 @@ pipeline {
                 sh 'python --version'
             }
         }
-	stage('/weather') {
-	 steps {
-	  sh 'python3 test_app.py"
+	stage('test app') {
+		steps {
+		sh 'pip install flask'
+	  	sh 'pip install pytest'
+		sh 'pip install requests'
+		sh 'python3 test_app.py'
 	   }
 	}
     }
