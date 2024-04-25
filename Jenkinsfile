@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'python --version'
+                sh 'python -m py_compile app.py'
             }
         }
 	stage('test app') {
@@ -11,7 +11,7 @@ pipeline {
 		sh 'pip install flask'
 	  	sh 'pip install pytest'
 		sh 'pip install requests'
-		sh 'python3 test_app.py'
+		sh 'python test_app.py'
 	   }
 	}
     }
