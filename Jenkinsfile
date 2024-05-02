@@ -4,15 +4,22 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // Install dependencies
-                sh 'pip install -r requirements.txt'
+                echo 'Building Python project'
+                bat 'python -m pip install -r requirements.txt'
             }
         }
+
         stage('Test') {
             steps {
-                // Run pytest
-                sh 'pytest'
+                echo 'Running pytest'
+                bat 'pytest'
             }
+        }
+    }
+
+    post {
+        always {
+            echo 'Finished'
         }
     }
 }
